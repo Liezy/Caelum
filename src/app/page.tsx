@@ -4,11 +4,10 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Image from "next/image";
 
-
 //endpoint = 'https://api.openweathermap.org/data/2.5/weather?q=Palmas,BR&appid=SUA_API_KEY&units=metric'
 //Modularização e organização das interfaces TypeScript para representar os dados da API do OpenWeatherMap
 
-interface WeatherResponse {
+interface WeatherData {
   coord: {
     lon: number;
     lat: number;
@@ -55,7 +54,7 @@ interface WeatherResponse {
 
 export default function Home() {
 
-  const { isPending, error, data } = useQuery<WeatherResponse>({
+  const { isPending, error, data } = useQuery<WeatherData>({
     queryKey: ['repoData'],
     queryFn: async () => {
       // implementação com fetch
@@ -81,7 +80,19 @@ export default function Home() {
 
   return (
     <div>
-      aoba
+      <main>
+        {/* dados de hoje */}
+        <section>
+          <div>
+            <h2>
+              <p></p>
+            </h2>
+            <div></div>
+          </div>
+        </section>
+        {/* dados dos próximos 5 dias */}
+        <section></section>
+      </main>
     </div>
   );
 }
